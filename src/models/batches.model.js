@@ -6,11 +6,9 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
 
-  const batches = new Schema({
-    number: { type: Number },
-    startDate: { type: Date },
-    endDate: { type: Date },
-    students: [studentSchema],
+  const evaluationSchema = new Schema({
+    color: { type: Number, required: true },
+    remarks: { type: String },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   });
@@ -21,10 +19,12 @@ module.exports = function (app) {
     evaluations:[evaluationSchema],
   });
 
-  const evaluationSchema = new Schema({
-    color: { type: Number, required: true },
-    remarks: { type: String, required: true },
-    evaluations:[evaluationSchema],
+
+  const batches = new Schema({
+    number: { type: Number, required: true },
+    startDate: { type: Date, required: true },
+    endDate: { type: Date, required: true },
+    students: [studentSchema],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   });
