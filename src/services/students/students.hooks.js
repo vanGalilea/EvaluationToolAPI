@@ -6,6 +6,8 @@ const restrict = [
   restrictToAuthenticated(),
 ];
 
+const studentsByBatch = require('../../hooks/students-by-batch');
+
 module.exports = {
   before: {
     all: [],
