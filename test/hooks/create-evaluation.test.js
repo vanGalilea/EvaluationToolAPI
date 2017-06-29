@@ -1,12 +1,12 @@
 const assert = require('assert');
-const studentsByBatch = require('../../src/hooks/students-by-batch');
+const createEvaluation = require('../../src/hooks/create-evaluation');
 
-describe('\'studentsByBatch\' hook', () => {
+describe('\'createEvaluation\' hook', () => {
   it('runs the hook', () => {
     // A mock hook object
     const mock = {};
     // Initialize our hook with no options
-    const hook = studentsByBatch();
+    const hook = createEvaluation();
 
     // Run the hook function (which returns a promise)
     // and compare the resulting hook object

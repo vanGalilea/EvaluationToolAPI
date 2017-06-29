@@ -6,6 +6,8 @@ const restrict = [
   restrictToAuthenticated(),
 ];
 
+const createEvaluation = require('../../hooks/create-evaluation');
+
 module.exports = {
   before: {
     all: [],
@@ -14,12 +16,8 @@ module.exports = {
     create: [
       authenticate('jwt'),
     ],
-    update: [
-      ...restrict
-    ],
-    patch: [
-      ...restrict
-    ],
+    update: [...restrict, createEvaluation()],
+    patch: [...restrict, createEvaluation()],
     remove: [
       ...restrict
     ]
