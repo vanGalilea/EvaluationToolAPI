@@ -9,7 +9,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
     const students = hook.app.service('students');
 
     if (!user) throw new errors.NotAuthenticated('You need to sign in before you can evaluate!');
-
+    
     return students.get(studentId)
       .then((student) => {
         if (student.evaluations === null) student.evaluations = [];
